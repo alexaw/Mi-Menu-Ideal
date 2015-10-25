@@ -4,34 +4,94 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.alexandraw.mimenuideal.adapters.CategoryAdapter;
+import com.example.alexandraw.mimenuideal.models.Category;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+
+    ListView list;
+    TextView cate;
+    //String data[];
+    //ArrayAdapter<String> adapter;
+
+    //declaro la lista de objetos
+    List<Category> data;
+    CategoryAdapter adapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        list = (ListView) findViewById(R.id.list);
+        cate = (TextView) findViewById(R.id.cate);
+
+        //data = getResources().getStringArray(R.array.categorias);
+        //list.setOnItemClickListener(this);
+
+        //1. se fijan los datos funciona como si tuviera en el layaout
+        //android:entries="@array/ingredientes"
+
+        //adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
+
+        //2. Adapter con template
+        //adapter = new ArrayAdapter<String>(this, R.layout.template_item,R.id.catName,data);
+
+
+        //Implemento la lista vacia de tipo category
+        data = new ArrayList<>();
+        adapter = new CategoryAdapter(this,data);
+
+        //Para fijar el adapter en la lista
+        list.setAdapter(adapter);
+        
+        loadData();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    //se fijan los datos
+    private void loadData() {
+        String category[] = getResources().getStringArray(R.array.categorias_completo);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        for(int i=0; i<category.length;i++){
+            //separo la informacion con split: metodo que corta la cadena de acuerdo a un toquen
+            String categorys[] = category[i].split(",");
+
+            //Se llenan de los objetos
+            Category c = new Category();
+            c.setCategory(categorys[0]);
+            c.setStart(Float.parseFloat(categorys[1]));
+            c.setImgUrl(categorys[2]);
+
+            //agrega los objetos
+            data.add(c);
         }
+        //Al final del for la data esta llena de la informacion
+        //notificar que el conjunto de datos cambió
+        //renderiza los visibles en pantalla
+        adapter.notifyDataSetChanged();
+    }
 
-        return super.onOptionsItemSelected(item);
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //Agrega 4 metodos de entrada
+        //cate.setText(data[position]);
+
+        //Para ver el nombre de lo selecionado
+
+        //cate.setText(data.get(position)getCategoty());
+
     }
 }

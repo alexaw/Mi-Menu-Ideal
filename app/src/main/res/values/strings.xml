@@ -16,4 +16,22 @@
     <string name="register_lastname">Apellido</string>
     <string name="register_ident">Número de identificación</string>
     <string name="register_btn">Registrar</string>
+    <string name="category_txt">Seleccione categoria</string>
+    
+    //para un arreglo
+
+    <string-array name="categorias">
+        <item>Comidas Rápidas</item>
+        <item>Bebidas</item>
+        <item>Heladería</item>
+        <item>Varios</item>
+    </string-array>
+
+    <string-array name="categorias_completo">
+        <item>Comidas Rápidas,6000,http://www.publitell.com/system/fotos/43567/perros-calientes.jpg</item>
+        <item>Bebidas,3000,http://static.imujer.com/sites/default/files/elgrancatador/las-3%20bebidas-alcoholicas-que-dejan-menos-resaca-3.jpg</item>
+        <item>Heladería,5000,http://www.recetin.com/wp-content/uploads/2013/07/helado_fresa1.jpg</item>
+        <item>Varios,1000,http://orsimages.unileversolutions.com/ORS_Images/Knorr_es-CO/Empanadas_de_carne_28_1.3.6_326X580.Jpeg</item>
+    </string-array>
+
 </resources>

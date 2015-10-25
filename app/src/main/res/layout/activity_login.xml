@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:padding="15dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/fondo"
+    tools:context="com.example.alexandraw.mimenuideal.LoginActivity">
+
+    <TextView
+        style="@style/Base.TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_txt"
+        android:textColor="#1d21b7"
+        android:layout_marginBottom="15dp"
+        />
+    <EditText
+        android:id="@+id/usr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_marginBottom="15dp"
+        android:hint="@string/login_usr"
+        />
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_marginBottom="15dp"
+        android:hint="@string/login_pass"
+        />
+    <Button
+        android:id="@+id/btnLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_btn"
+        android:background="#cbced1"
+        android:layout_marginBottom="20dp"
+        />
+    <TextView
+        android:id="@+id/linkReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_regHere_txt"
+        android:textColor="#ff1702"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        />
+
+</LinearLayout>

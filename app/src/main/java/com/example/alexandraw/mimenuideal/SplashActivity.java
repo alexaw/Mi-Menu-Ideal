@@ -34,7 +34,7 @@ public class SplashActivity extends Activity {
 
                 //Inicia la actividad LoginActivity
 
-                Intent mainIntent = new Intent().setClass(SplashActivity.this, MainActivity.class);
+                Intent mainIntent = new Intent().setClass(SplashActivity.this, LoginActivity.class);
                 startActivity(mainIntent);
                 finish();
             }

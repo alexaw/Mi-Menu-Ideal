@@ -31,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         ParseAnalytics.trackAppOpened(getIntent());
 
 
+
         name = (EditText)findViewById(R.id.name);
         lastname = (EditText)findViewById(R.id.lastname);
         numId = (EditText)findViewById(R.id.numId);

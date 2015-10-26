@@ -10,6 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.parse.LogInCallback;
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseException;
+import com.parse.ParseInstallation;
+import com.parse.ParseUser;
 
 
 // Se guarda el nombre del usuario y el login
@@ -45,9 +53,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Parse.initialize(this, "oWuXpc5ahPda0W9eBntpFNW3Grk3wLwVgSJZzbyQ", "JmCInHZTQuiYtizQTPYVDk6qUZ6VQLq4585RNr6q");
+        ParseAnalytics.trackAppOpened(getIntent());
+        ParseInstallation.getCurrentInstallation().saveInBackground();
+
         //Se recuperan los views
-        usr = (EditText)findViewById(R.id.usr);
-        pass = (EditText)findViewById(R.id.pass);
+        usr = (EditText)findViewById(R.id.userLog);
+        pass = (EditText)findViewById(R.id.passLog);
         in = (Button)findViewById(R.id.btnLog);
         link = (TextView)findViewById(R.id.linkReg);
 
@@ -56,10 +68,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         link.setOnClickListener(this);
 
         //En el onCreate obtengo los valores (Nombre y tipo)
-        preferences = getSharedPreferences(PREFERENCE, MODE_PRIVATE);
+        //preferences = getSharedPreferences(PREFERENCE, MODE_PRIVATE);
 
         //A traves del preferences obtengo el editor
-        editor = preferences.edit();
+        //editor = preferences.edit();
 
     }
 
@@ -72,19 +84,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btnLog:
                 //Cuando le de click e iniciar sesion se llena el editor que tiene
                 //un booleano con la llave login =  true
-                editor.putBoolean(KEY_LOGIN, true);
+                //editor.putBoolean(KEY_LOGIN, true);
 
                 //Se guarda de manera persistente y va a estar hasta que se desinstale  la app
                 //se va a guardar el nombre del usuario
-                editor.putString(KEY_USER, usr.getText().toString());
-                editor.commit();
+               // editor.putString(KEY_USER, usr.getText().toString());
+                //editor.commit();
 
                 //Se hace la navegacion al MainActivity, la navegacion entre
                 //pantallas se hace a traves de intents
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
 
+
+
+                sUsr = usr.getText().toString();
+                sPass = pass.getText().toString();
+
+                ParseUser.logInInBackground(sUsr, sPass, new LogInCallback() {
+                    @Override
+                    public void done(ParseUser user, ParseException e) {
+                        if(user != null){
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }else{
+                            Toast toast = Toast.makeText(getApplication(), "Error, Ingresa de nuevo tus datos", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                    }
+                });
 
 
 

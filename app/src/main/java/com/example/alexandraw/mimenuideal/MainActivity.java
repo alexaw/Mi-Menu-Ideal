@@ -98,20 +98,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //cate.setText(data.get(position)getCategoty());
 
-        cate.setText(data2[position]);
+
 
         switch (position){
             case 0:
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, FastFoodActivity.class);
                 startActivity(intent);
-                finish();
                 break;
             case 1:
-                Intent intent1 = new Intent(this, MainActivity.class);
+                Intent intent1 = new Intent(this, DrinksActivity.class);
                 startActivity(intent1);
-                finish();
                 break;
-
+            case 2:
+                Intent intent2 = new Intent(this, IceCreamActivity.class);
+                startActivity(intent2);
+                break;
+            case 3:
+                Intent intent3 = new Intent(this, OthersActivity.class);
+                startActivity(intent3);
+                break;
         }
     }
 }

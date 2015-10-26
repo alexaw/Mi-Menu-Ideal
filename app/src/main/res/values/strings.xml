@@ -33,5 +33,22 @@
         <item>Heladería,5000,http://www.recetin.com/wp-content/uploads/2013/07/helado_fresa1.jpg</item>
         <item>Varios,1000,http://orsimages.unileversolutions.com/ORS_Images/Knorr_es-CO/Empanadas_de_carne_28_1.3.6_326X580.Jpeg</item>
     </string-array>
+    <string name="title_activity_fast_food">FastFoodActivity</string>
+    <string name="txt_dog">Perro Caliente</string>
+    <string name="txt_burger">Hamburguesa</string>
+    <string name="txt_san">Sandwich</string>
+    <string name="title_activity_drinks">DrinksActivity</string>
+    <string name="txt_jugo">Jugos</string>
+    <string name="txt_gas">Gaseosas</string>
+    <string name="txt_gran">Granizados</string>
+    <string name="txt_mal">Malteadas</string>
+    <string name="txt_cafe">Cafeteria</string>
+    <string name="title_activity_ice_cream">IceCreamActivity</string>
+    <string name="txt_frutas">Ensalada de Frutas</string>
+    <string name="txt_split">Banana Split</string>
+    <string name="txt_fresas">Fresas con Helado</string>
+    <string name="title_activity_others">OthersActivity</string>
+    <string name="txt_pan">Panaderia</string>
+    <string name="txt_tipi">Típicos</string>
 
 </resources>

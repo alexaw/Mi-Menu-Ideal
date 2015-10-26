@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/fondo"
+    tools:context="com.example.alexandraw.mimenuideal.FastFoodActivity">
+
+    <Button
+        android:id="@+id/btn_dog"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/mgn_btn"
+        android:text="@string/txt_dog"
+        android:onClick="perros"
+        android:layout_marginTop="110dp"
+        android:layout_centerHorizontal="true"
+        android:background="#81433d"
+        android:textColor="#ffffff"
+
+        />
+
+    <Button
+        android:id="@+id/btn_burger"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/mgn_btn"
+        android:text="@string/txt_burger"
+        android:layout_centerHorizontal="true"
+        android:onClick="hamburguesas"
+        android:layout_below="@+id/btn_dog"
+        android:background="#81433d"
+        android:textColor="#ffffff"
+        />
+
+    <Button
+        android:id="@+id/btn_san"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_san"
+        android:layout_centerHorizontal="true"
+        android:onClick="sandwiches"
+        android:layout_below="@+id/btn_burger"
+        android:background="#81433d"
+        android:textColor="#ffffff"
+        />
+</RelativeLayout>

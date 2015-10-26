@@ -33,10 +33,11 @@
         />
     <Button
         android:id="@+id/btnLog"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login_btn"
-        android:background="#cbced1"
+        android:textColor="#ffffff"
+        android:background="#551b18"
         android:layout_marginBottom="20dp"
         />
     <TextView

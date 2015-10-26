@@ -1,5 +1,6 @@
 package com.example.alexandraw.mimenuideal;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,9 +19,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    ListView list;
+    ListView list, list2;
     TextView cate;
-    //String data[];
+    String data2[];
     //ArrayAdapter<String> adapter;
 
     //declaro la lista de objetos
@@ -35,10 +36,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         list = (ListView) findViewById(R.id.list);
+        list2 = (ListView) findViewById(R.id.list);
+
+
         cate = (TextView) findViewById(R.id.cate);
 
-        //data = getResources().getStringArray(R.array.categorias);
-        //list.setOnItemClickListener(this);
+
+        data2 = getResources().getStringArray(R.array.categorias_completo);
+        list2.setOnItemClickListener(this);
 
         //1. se fijan los datos funciona como si tuviera en el layaout
         //android:entries="@array/ingredientes"
@@ -93,5 +98,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //cate.setText(data.get(position)getCategoty());
 
+        cate.setText(data2[position]);
+
+        switch (position){
+            case 0:
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+            case 1:
+                Intent intent1 = new Intent(this, MainActivity.class);
+                startActivity(intent1);
+                finish();
+                break;
+
+        }
     }
 }

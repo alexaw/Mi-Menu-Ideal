@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
@@ -27,8 +28,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        Parse.initialize(this, "oWuXpc5ahPda0W9eBntpFNW3Grk3wLwVgSJZzbyQ", "JmCInHZTQuiYtizQTPYVDk6qUZ6VQLq4585RNr6q");
-        ParseAnalytics.trackAppOpened(getIntent());
+       // Parse.initialize(this, "oWuXpc5ahPda0W9eBntpFNW3Grk3wLwVgSJZzbyQ", "JmCInHZTQuiYtizQTPYVDk6qUZ6VQLq4585RNr6q");
+        //ParseAnalytics.trackAppOpened(getIntent());
+
 
 
 
@@ -65,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 user.put("Ident",sNumId);
 
                 //objetos propios de parse
-                user.setUsername(sName);
+                user.setUsername(sUsr);
                 user.setPassword(sPass);
 
                 //Para poder guardarlos
@@ -74,15 +76,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void done(ParseException e) {
                         if (e == null){
-                            Toast toast = Toast.makeText(getApplicationContext(),
-                                                        "Registro Exitoso", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getApplicationContext(),"Registro Exitoso", Toast.LENGTH_SHORT);
                             toast.show();
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
                             finish();
                         }else{
-                            Toast toast = Toast.makeText(getApplicationContext(),
-                                    "Registro Fallido", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getApplicationContext(),"Registro Fallido", Toast.LENGTH_SHORT);
                             toast.show();
                         }
 

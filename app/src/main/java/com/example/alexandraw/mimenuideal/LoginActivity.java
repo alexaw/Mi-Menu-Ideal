@@ -55,11 +55,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         Parse.initialize(this, "oWuXpc5ahPda0W9eBntpFNW3Grk3wLwVgSJZzbyQ", "JmCInHZTQuiYtizQTPYVDk6qUZ6VQLq4585RNr6q");
         ParseAnalytics.trackAppOpened(getIntent());
-        ParseInstallation.getCurrentInstallation().saveInBackground();
+
 
         //Se recuperan los views
-        usr = (EditText)findViewById(R.id.userLog);
-        pass = (EditText)findViewById(R.id.passLog);
+        usr = (EditText)findViewById(R.id.usr);
+        pass = (EditText)findViewById(R.id.pass);
         in = (Button)findViewById(R.id.btnLog);
         link = (TextView)findViewById(R.id.linkReg);
 
@@ -118,10 +118,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.linkReg:
-                Intent intent2 = new Intent(this, RegisterActivity.class);
-                startActivity(intent2);
+                Intent intent = new Intent(this, RegisterActivity.class);
+                startActivity(intent);
                 finish();
                 break;
         }
+
+
+
     }
 }
